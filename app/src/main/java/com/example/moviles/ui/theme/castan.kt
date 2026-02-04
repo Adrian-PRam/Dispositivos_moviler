@@ -21,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -31,7 +32,7 @@ import com.example.moviles.R
 @Composable
 
 fun Multiservicios() {
-    Box(modifier = Modifier.fillMaxWidth().background(Color.DarkGray).height(615.dp)) {
+    Box(modifier = Modifier.fillMaxWidth().background(Color.DarkGray).height(510.dp)) {
         Box(Modifier
             .background(BackgroundBlue)
             .fillMaxWidth()
@@ -64,7 +65,7 @@ fun Multiservicios() {
             Box(Modifier
                 .background(Color.DarkGray)
                 .fillMaxWidth()
-                .height(350.dp)) {
+                .height(250.dp)) {
                 Text(text = "Multiservicios Castan: " +
                         "Soluciones para tu hogar en Tampico",
                     modifier = Modifier
@@ -72,13 +73,14 @@ fun Multiservicios() {
                         .padding(3.dp),
                     fontSize = 30.sp,
                     color = Color.White,
-                    textAlign = TextAlign.Center)
+                    textAlign = TextAlign.Center,
+                    fontWeight = FontWeight.Bold)
             }
 
             Box(Modifier
                 .fillMaxWidth()
                 .height(27.dp)
-                .offset(y = 350.dp)
+                .offset(y = 250.dp)
                 .background(Color.DarkGray)) {
 
                 Text(text = "128 seguidores · 1 seguidos",
@@ -92,7 +94,7 @@ fun Multiservicios() {
             Box(Modifier
                 .fillMaxWidth()
                 .height(40.dp)
-                .offset(y = 377.dp)
+                .offset(y = 277.dp)
                 .background(Color.DarkGray)) {
 
                 Image(
@@ -109,14 +111,15 @@ fun Multiservicios() {
             Box(Modifier
                 .fillMaxWidth()
                 .height(300.dp)
-                .offset(y = 417.dp)
+                .offset(y = 317.dp)
                 .background(Color.DarkGray),
                 contentAlignment = Alignment.TopCenter) {
 
                 Text(text = "En Multiservicios Castan ofrecemos todo tipo de servicios para\n" +
                         "el mantenimiento y reparación del hogar en Tampico,\n" +
                         "Tamaulipas. Desde aire acondicionado, pintura, plomería y\n" +
-                        "electricidad, hasta albañilería, herrería e impermeabilizado.",
+                        "electricidad, hasta albañilería, herrería e impermeabilizado.\n" +
+                        "Pintura de casas",
                     modifier = Modifier
                         .align(Alignment.TopCenter)
                         .padding(3.dp),
