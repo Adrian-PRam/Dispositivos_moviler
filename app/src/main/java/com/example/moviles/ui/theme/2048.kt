@@ -376,7 +376,6 @@ fun Juego() {
                 painter = painterResource(id = R.drawable.random_icons),
                 contentDescription = "My image",
                 modifier = Modifier.size(200.dp)
-
             )
         }
 

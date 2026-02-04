@@ -32,3 +32,11 @@ val BestBorder = Color(color = 0xFFEAE7DA)
 
 val FullGameBackground = Color(color = 0xFFFAF8F0)
 
+val BackgroundOrange = Color(color = 0xFFDF793E)
+
+val BackgroundBlue = Color(color = 0xFF294C69)
+
+val BackgroundMultiservicios = Color(color = 0xFF252728)
+
+
+
