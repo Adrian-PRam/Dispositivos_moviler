@@ -47,7 +47,8 @@ fun Juego() {
                     ) {
                     Image(
                         painter = painterResource(id = R.drawable.menu_icon),
-                        contentDescription = "My image"
+                        contentDescription = "My image",
+                        modifier = Modifier.size(40.dp)
                     )
 
                     Text(
@@ -56,7 +57,8 @@ fun Juego() {
 
                     Image(
                         painter = painterResource(id = R.drawable.retry),
-                        contentDescription = "My image"
+                        contentDescription = "My image",
+                        modifier = Modifier.size(40.dp)
                     )
 
                 }
