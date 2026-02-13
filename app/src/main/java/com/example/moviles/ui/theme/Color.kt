@@ -38,5 +38,7 @@ val BackgroundBlue = Color(color = 0xFF294C69)
 
 val BackgroundMultiservicios = Color(color = 0xFF252728)
 
+val MessengerColor = Color(color = 0xFF2F3D91)
+
 
 
