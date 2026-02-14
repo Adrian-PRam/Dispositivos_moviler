@@ -48,7 +48,7 @@ val Color256 = Color(0xFFF7CD45)
 
 val Color512 = Color(0xFFEBBB22)
 
-val Color1028 = Color(0xFFE9B508)
+val Color1024 = Color(0xFFE9B508)
 
 val Color2048 = Color(0xFFF4BD00)
 

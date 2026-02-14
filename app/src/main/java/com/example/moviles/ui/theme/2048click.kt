@@ -21,6 +21,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -38,108 +40,55 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.getValue
 import com.example.moviles.ui.theme.TextStuff.DisplayText
+import com.example.moviles.ui.theme.TextStuff.GameOver
+import com.example.moviles.ui.theme.TextStuff.TileBox
 
 @Preview(showBackground = true)
 @Composable
 
 fun Juego2() {
 
-    var number by remember {
-        mutableStateOf(0)
+    var showButton by remember {
+        mutableStateOf(false)
     }
 
-    var boxColor by remember {
-        mutableStateOf(EmptyColor)
+    var isGameOver by remember {
+        mutableStateOf(false)
     }
 
-    var tamanoCaja by remember {
-        mutableStateOf(35)
+    var tiles by remember {
+        mutableStateOf(
+            List(16) { 0 }
+        )
     }
 
-    var numberColor by remember {
-        mutableStateOf(Color.Black)
+    var score by remember {
+        mutableStateOf(0L)
+    }
+
+    var gameOver by remember {
+        mutableStateOf("")
     }
 
 
+    var max by remember {
+        mutableStateOf(0L)
+    }
 
-
-
-    fun ChangeBox() {
-        if (number == 0) {
-            number = 2
-        } else if (number != 2048) {
-            number = number*2
-        }
-
-        when(number) {
-            2 ->  {
-                boxColor = Color2
-                tamanoCaja = 35
-                numberColor = Color.Black
-            }
-
-            4 ->  {
-                boxColor = Color4
-                tamanoCaja = 35
-                numberColor = Color.Black
-            }
-
-            8 ->  {
-                boxColor = Color8
-                tamanoCaja = 35
-                numberColor = Color.White
-            }
-
-            16 ->  {
-                boxColor = Color16
-                tamanoCaja = 30
-                numberColor = Color.White
-            }
-
-            32 ->  {
-                boxColor = Color32
-                tamanoCaja = 30
-                numberColor = Color.White
-            }
-
-            64 ->  {
-                boxColor = Color64
-                tamanoCaja = 30
-                numberColor = Color.White
-            }
-
-            128 ->  {
-                boxColor = Color128
-                tamanoCaja = 28
-                numberColor = Color.White
-            }
-
-            256 ->  {
-                boxColor = Color256
-                tamanoCaja = 28
-                numberColor = Color.White
-            }
-
-            512 ->  {
-                boxColor = Color512
-                tamanoCaja = 28
-                numberColor = Color.White
-            }
-            
-            1024  -> {
-                boxColor = Color1028
-                tamanoCaja = 20
-                numberColor = Color.White
-            }
-
-            2048  -> {
-                boxColor = Color2048
-                tamanoCaja = 20
-                numberColor = Color.White
-            }
+    fun CalculateMax(valor: Long) {
+        if (valor > max) {
+            max = valor
         }
     }
 
+    fun PlayAgain() {
+        max = 0
+        score = 0
+        tiles = List(16) {0}
+        showButton = false
+        gameOver = ""
+        isGameOver = false
+    }
 
     Box(modifier = Modifier.fillMaxSize().background(FullGameBackground)) {
 
@@ -168,52 +117,104 @@ fun Juego2() {
 
                 }
             }
+            Column() {
 
-            Box(modifier = Modifier.height(70.dp).fillMaxWidth()) {
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.SpaceAround,
-                    modifier = Modifier.fillMaxWidth()
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(17.dp))
-                            .background(ScoreBackground)
-                            .fillMaxHeight()
-                            .width(180.dp),
+                Box(modifier = Modifier.height(70.dp).fillMaxWidth()) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.SpaceAround,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(17.dp))
+                                .background(ScoreBackground)
+                                .fillMaxHeight()
+                                .width(180.dp),
 
-                        ) {
-                        Text(text = "SCORE",
-                            modifier = Modifier.align(Alignment.CenterStart).padding(8.dp),
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold)
-
-                        Text(text = "1692",
-                            modifier = Modifier.align(Alignment.CenterEnd).padding(8.dp),
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold)
-                    }
-                    Box(
-                        modifier = Modifier
-                            .clip(RoundedCornerShape(17.dp))
-                            .border(
-                                width = 4.dp,
-                                color = BestBorder,
-                                shape = RoundedCornerShape(17.dp)
+                            ) {
+                            Text(
+                                text = "SCORE",
+                                modifier = Modifier.align(Alignment.CenterStart).padding(8.dp),
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Bold
                             )
-                            .fillMaxHeight()
-                            .width(180.dp),
 
-                        ) {
-                        Text(text = "BEST",
-                            modifier = Modifier.align(Alignment.CenterStart).padding(8.dp),
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold)
+                            Text(
+                                text = score.toString(),
+                                modifier = Modifier.align(Alignment.CenterEnd).padding(8.dp),
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                        Box(
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(17.dp))
+                                .border(
+                                    width = 4.dp,
+                                    color = BestBorder,
+                                    shape = RoundedCornerShape(17.dp)
+                                )
+                                .fillMaxHeight()
+                                .width(180.dp),
 
-                        Text(text = "7000",
-                            modifier = Modifier.align(Alignment.CenterEnd).padding(8.dp),
-                            fontSize = 15.sp,
-                            fontWeight = FontWeight.Bold)
+                            ) {
+                            Text(
+                                text = "BEST",
+                                modifier = Modifier.align(Alignment.CenterStart).padding(8.dp),
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+
+                            Text(
+                                text = max.toString(),
+                                modifier = Modifier.align(Alignment.CenterEnd).padding(8.dp),
+                                fontSize = 15.sp,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
+                    }
+                }
+
+                Box(modifier = Modifier
+                    .fillMaxWidth()
+                    .height(110.dp),
+                    contentAlignment = Alignment.Center) {
+                    //alpha
+
+                    if (max == 4096L) {
+                        isGameOver = true
+                    }
+
+                    if (isGameOver == true) {
+                        showButton = true
+                        gameOver = "Game Over"
+                    }
+
+
+
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Box(modifier = Modifier
+                            .fillMaxWidth()
+                            .height(110.dp),
+                            contentAlignment = Alignment.Center) {
+
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                Text(
+                                    text = gameOver,
+                                    fontSize = 35.sp
+                                )
+
+                                if (showButton) {
+                                    Button(onClick = { PlayAgain() }, colors = ButtonDefaults.buttonColors(
+                                        contentColor = Color.Black,
+                                        containerColor = ScoreBackground)
+                                    ) {
+                                        Text(text = "Play Again")
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -235,324 +236,170 @@ fun Juego2() {
                         verticalArrangement = Arrangement.Bottom,
                         modifier = Modifier.padding(5.dp)
                     ) {
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(boxColor)
-                                .size(NumberSize)
-                                .clickable() {
-//                                  ChangeNumber()
-                                    ChangeBox()
-                                }
-
-                        ) {
-
-                            if (number == 0) {
-                                DisplayText(
-                                    texto = "",
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = 35,
-                                    colorFuente = Color.Black)
-                            } else {
-                                DisplayText(
-                                    texto = number.toString(),
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = tamanoCaja,
-                                    colorFuente = numberColor)
+                        TileBox(tiles[0]) {
+                            if (it == 0L) {
+                                score = score + 2
+                                CalculateMax(valor = 2)
+                            } else if (it  < 4096L){
+                                score = it + score
+                                CalculateMax(valor = it * 2)
                             }
+
                         }
 
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(boxColor)
-                                .size(NumberSize)
-                                .clickable() {
-//                                  ChangeNumber()
-                                    ChangeBox()
-                                }
+                        TileBox(tiles[1]) {
 
-                        ) {
-                            if (number == 0) {
-                                DisplayText(
-                                    texto = "",
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = 35,
-                                    colorFuente = Color.Black)
-                            } else {
-                                DisplayText(
-                                    texto = number.toString(),
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = tamanoCaja,
-                                    colorFuente = numberColor)
+                            if (it == 0L) {
+                                score = score + 2
+                                CalculateMax(valor = 2)
+                            } else if (it != 2048L){
+                                score = it + score
+                                CalculateMax(valor = it * 2)
                             }
+
                         }
 
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(boxColor)
-                                .size(NumberSize)
-                                .clickable() {
-//                                  ChangeNumber()
-                                    ChangeBox()
-                                }
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
+//
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
 
-                        ) {
-                            if (number == 0) {
-                                DisplayText(
-                                    texto = "",
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = 35,
-                                    colorFuente = Color.Black)
-                            } else {
-                                DisplayText(
-                                    texto = number.toString(),
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = tamanoCaja,
-                                    colorFuente = numberColor)
-                            }
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(boxColor)
-                                .size(NumberSize)
-                                .clickable() {
-//                                  ChangeNumber()
-                                    ChangeBox()
-                                }
-
-                        ) {
-                            if (number == 0) {
-                                DisplayText(
-                                    texto = "",
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = 35,
-                                    colorFuente = Color.Black)
-                            } else {
-                                DisplayText(
-                                    texto = number.toString(),
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = tamanoCaja,
-                                    colorFuente = numberColor)
-                            }
-                        }
                     }
 
                     Column(
                         verticalArrangement = Arrangement.Bottom,
                         modifier = Modifier.padding(5.dp)
                     ) {
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(boxColor)
-                                .size(NumberSize)
-                                .clickable() {
-//                                  ChangeNumber()
-                                    ChangeBox()
-                                }
-
-                        ) {
-                            if (number == 0) {
-                                DisplayText(
-                                    texto = "",
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = 35,
-                                    colorFuente = Color.Black)
-                            } else {
-                                DisplayText(
-                                    texto = number.toString(),
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = tamanoCaja,
-                                    colorFuente = numberColor)
-                            }
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(boxColor)
-                                .size(NumberSize)
-                                .clickable() {
-//                                  ChangeNumber()
-                                    ChangeBox()
-                                }
-
-                        ) {
-                            if (number == 0) {
-                                DisplayText(
-                                    texto = "",
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = 35,
-                                    colorFuente = Color.Black)
-                            } else {
-                                DisplayText(
-                                    texto = number.toString(),
-                                    modificador = Modifier.align(Alignment.Center),
-                                    tamano = tamanoCaja,
-                                    colorFuente = numberColor)
-                            }
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color2)
-                                .size(NumberSize)
-
-                        ) {
-                            Text(
-                                text = "2",
-                                fontSize = 35.sp,
-                                modifier = Modifier.align(Alignment.Center)
-                            )
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color(color = 0xFFBBAD9B))
-                                .size(NumberSize)
-
-                        ) {
-
-                        }
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
+//
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
+//
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
+//
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
                     }
 
                     Column(
                         verticalArrangement = Arrangement.Bottom,
                         modifier = Modifier.padding(5.dp)
                     ) {
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color8)
-                                .size(NumberSize)
-
-                        ) {
-                            Text(
-                                text = "8",
-                                fontSize = 35.sp,
-                                modifier = Modifier.align(Alignment.Center)
-                            )
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color64)
-                                .size(NumberSize)
-
-                        ) {
-                            Text(
-                                text = "64",
-                                fontSize = 35.sp,
-                                modifier = Modifier.align(Alignment.Center)
-                            )
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color128)
-                                .size(NumberSize)
-
-                        ) {
-                            Text(
-                                text = "128",
-                                fontSize = 20.sp,
-                                modifier = Modifier.align(Alignment.Center)
-                            )
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color8)
-                                .size(NumberSize)
-
-                        ) {
-                            Text(
-                                text = "8",
-                                fontSize = 35.sp,
-                                modifier = Modifier.align(Alignment.Center)
-                            )
-                        }
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
+//
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
+//
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
+//
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
                     }
 
                     Column(
                         verticalArrangement = Arrangement.Bottom,
                         modifier = Modifier.padding(5.dp)
                     ) {
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color32)
-                                .size(NumberSize)
-
-                        ) {
-                            Text(
-                                text = "32",
-                                fontSize = 35.sp,
-                                modifier = Modifier.align(Alignment.Center)
-                            )
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color4)
-                                .size(NumberSize)
-
-                        ) {
-                            Text(
-                                text = "4",
-                                fontSize = 35.sp,
-                                modifier = Modifier.align(Alignment.Center)
-                            )
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color4)
-                                .size(NumberSize)
-
-                        ) {
-                            Text(
-                                text = "64",
-                                fontSize = 35.sp,
-                                modifier = Modifier.align(Alignment.Center)
-                            )
-                        }
-
-                        Box(
-                            modifier = Modifier
-                                .padding(5.dp)
-                                .clip(RoundedCornerShape(10.dp))
-                                .background(Color(color = 0xFFBBAD9B))
-                                .size(NumberSize)
-
-                        ) {
-                        }
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
+//
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
+//
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
+//
+//                        TileBox() {
+//                            if (it == 0L) {
+//                                score = score + 2
+//                            } else {
+//                                score = it + score
+//                            }
+//
+//                        }
                     }
 
 
