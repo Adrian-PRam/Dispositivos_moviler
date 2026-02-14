@@ -40,5 +40,25 @@ val BackgroundMultiservicios = Color(color = 0xFF252728)
 
 val MessengerColor = Color(color = 0xFF2F3D91)
 
+val EmptyColor = Color(0xFFBBAD9B)
+
+val WhiteColor = Color(0xFFFFFFFF)
+
+val Color256 = Color(0xFFF7CD45)
+
+val Color512 = Color(0xFFEBBB22)
+
+val Color1028 = Color(0xFFE9B508)
+
+val Color2048 = Color(0xFFF4BD00)
+
+
+
+
+
+
+
+
+
 
 
