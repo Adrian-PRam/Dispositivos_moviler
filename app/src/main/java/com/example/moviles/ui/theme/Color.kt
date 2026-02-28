@@ -52,7 +52,15 @@ val Color1024 = Color(0xFFE9B508)
 
 val Color2048 = Color(0xFFF4BD00)
 
+val CourtColor1 = Color(0xFF2AFF04)
 
+val CourtColor2 = Color(0xFFFF5722)
+
+val NetColor = Color(0xFF000000)
+
+val Indigo = Color(0xFF2DB1CD)
+
+val GreyBorder = Color(0xFF6E6E6E)
 
 
 
