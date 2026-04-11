@@ -2,6 +2,7 @@ package com.example.moviles.mercadolibre
 
 import com.example.actividad1am.R
 
+
 val listaCategorias = listOf(
     Categoria("Tecnología", R.drawable.tecnologia),
     Categoria("Ropa y moda", R.drawable.ropa),
