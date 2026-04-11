@@ -55,7 +55,7 @@ fun LoginEdadView(navegante: NavHostController) {
 
 
             Text(
-                "INGRESA TU EDAD",
+                "INGRESA TU ANO DE NACIMIENTO",
                 modifier = Modifier.padding(9.dp),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
@@ -70,7 +70,7 @@ fun LoginEdadView(navegante: NavHostController) {
             Button(onClick = {
                 navegante.navigate(
                     EdadIngresada(
-                        userEdad.toInt()))
+                        (2026-userEdad.toInt())))
             }) {
                 Text(text = "Enviar Datos", modifier = Modifier.padding(4.dp))
             }
