@@ -1,6 +1,5 @@
 package com.example.moviles.ui.theme
 
-import com.example.moviles.R
 import android.ranging.raw.RawRangingDevice
 import android.view.Display
 import androidx.compose.foundation.Image
@@ -39,6 +38,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.runtime.getValue
+import com.example.actividad1am.R
 import com.example.moviles.ui.theme.TextStuff.DisplayText
 import com.example.moviles.ui.theme.TextStuff.GameOver
 import com.example.moviles.ui.theme.TextStuff.TileBox

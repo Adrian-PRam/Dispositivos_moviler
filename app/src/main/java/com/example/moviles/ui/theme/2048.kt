@@ -1,6 +1,5 @@
 package com.example.moviles.ui.theme
 
-import com.example.moviles.R
 import android.ranging.raw.RawRangingDevice
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -31,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.actividad1am.R
 
 @Preview(showBackground = true)
 @Composable
@@ -46,7 +46,7 @@ fun Juego() {
                     modifier = Modifier.fillMaxWidth()
                     ) {
                     Image(
-                        painter = painterResource(id = R.drawable.menu_icon),
+                        painter = painterResource(id = R.drawable.retry),
                         contentDescription = "My image",
                         modifier = Modifier.size(40.dp)
                     )

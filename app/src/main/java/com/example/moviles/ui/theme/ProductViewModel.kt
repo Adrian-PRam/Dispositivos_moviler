@@ -1,6 +1,6 @@
 package com.example.moviles.ui.theme
 
-import com.example.moviles.R
+import com.example.actividad1am.R
 
 
 class ProductViewModel {

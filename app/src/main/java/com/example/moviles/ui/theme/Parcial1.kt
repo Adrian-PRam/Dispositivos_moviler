@@ -120,6 +120,18 @@ fun GameBoy() {
                         PersonajesMii()
                     }
 
+                    7 -> {
+                        PersonajesAkuma()
+                    }
+
+                    8 -> {
+                        PersonajesSegio()
+                    }
+
+                    9 -> {
+                        PersonajesSonic()
+                    }
+
                     else -> {
                         Box(
                             modifier = Modifier
@@ -142,6 +154,20 @@ fun GameBoy() {
                 TextField(value = personaje, onValueChange = { textoEscrito ->
                     if (textoEscrito != null) {
                         personaje = textoEscrito
+
+                        if (personaje == "mii" && controller != 0) {
+                            controller = 6
+                        } else if (personaje == "akuma" && controller != 0){
+                            controller = 7
+                        } else if (personaje == "sergio" && controller != 0){
+                            controller = 8
+                        } else if (personaje == "sonic" && controller != 0){
+                            controller = 9
+                        } else if (controller == 0){
+                            controller = 0
+                        } else {
+                            controller = 1
+                        }
                     }
                 })
             }
@@ -158,7 +184,10 @@ fun GameBoy() {
                         colorFilter = ColorFilter.tint(Color.Black),
                         modifier = Modifier
                             .clickable() {
-                                controller = 2
+                                if (controller != 0) {
+                                    controller = 2
+                                }
+
                             }
                             .padding(2.dp)
                             .size(30.dp),
@@ -174,7 +203,9 @@ fun GameBoy() {
                             colorFilter = ColorFilter.tint(Color.Black),
                             modifier = Modifier
                                 .clickable() {
-                                    controller = 3
+                                    if (controller != 0) {
+                                        controller = 3
+                                    }
                                 }
                                 .padding(2.dp)
                                 .size(30.dp),
@@ -187,7 +218,9 @@ fun GameBoy() {
                             colorFilter = ColorFilter.tint(Color.Black),
                             modifier = Modifier
                                 .clickable() {
-                                    controller = 4
+                                    if (controller != 0) {
+                                        controller = 4
+                                    }
                                 }
                                 .padding(2.dp)
                                 .size(30.dp),
@@ -200,7 +233,9 @@ fun GameBoy() {
                         colorFilter = ColorFilter.tint(Color.Black),
                         modifier = Modifier
                             .clickable() {
-                                controller = 5
+                                if (controller != 0) {
+                                    controller = 5
+                                }
                             }
                             .padding(2.dp)
                             .size(30.dp),
@@ -209,7 +244,16 @@ fun GameBoy() {
 
                 Column(modifier = Modifier.width(100.dp).height(150.dp)) {
                     Box(contentAlignment = Alignment.TopEnd, modifier = Modifier.fillMaxWidth().fillMaxHeight(0.5f)){
-                        Button(onClick = { controller = 6}
+                        Button(onClick = {
+                            when (controller) {
+                                2 -> controller = 6
+                                3 -> controller = 8
+                                4 -> controller = 9
+                                5 -> controller = 7
+                                else -> controller = controller
+
+                            }
+                        }
                             , colors = ButtonDefaults.buttonColors(
                                 contentColor = Color.White,
                                 containerColor = Color.Blue),
@@ -220,7 +264,9 @@ fun GameBoy() {
                         }
                     }
                     Box(contentAlignment = Alignment.TopStart, modifier = Modifier.fillMaxWidth().fillMaxHeight()){
-                        Button(onClick = { controller = 1}
+                        Button(onClick = { if (controller != 0) {
+                            controller = 1
+                        } }
                             , colors = ButtonDefaults.buttonColors(
                                 contentColor = Color.White,
                                 containerColor = Color.Blue),

@@ -62,6 +62,13 @@ val Indigo = Color(0xFF2DB1CD)
 
 val GreyBorder = Color(0xFF6E6E6E)
 
+val Brown = Color(0xFF732417)
+
+val Orange = Color(0xFFFF5722)
+
+val LightRed = Color(0xFF62BCE3)
+
+
 
 
 

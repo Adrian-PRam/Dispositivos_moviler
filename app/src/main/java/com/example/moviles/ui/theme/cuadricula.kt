@@ -27,9 +27,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.moviles.R
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import com.example.actividad1am.R
 
 
 @Composable
@@ -47,7 +47,7 @@ fun Personajes() {
         Column(modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
-                painter = painterResource(id = R.drawable.reyes),
+                painter = painterResource(id = R.drawable.mii),
                 contentDescription = "My image",
                 modifier = Modifier
                     .padding(6.dp)
@@ -62,7 +62,7 @@ fun Personajes() {
             Row(modifier = Modifier.fillMaxWidth().height(125.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Image(
-                    painter = painterResource(id = R.drawable.reyes),
+                    painter = painterResource(id = R.drawable.sergio_canales),
                     contentDescription = "My image",
                     modifier = Modifier
                         .padding(6.dp)
@@ -75,7 +75,7 @@ fun Personajes() {
                 )
 
                 Image(
-                    painter = painterResource(id = R.drawable.reyes),
+                    painter = painterResource(id = R.drawable.sonic),
                     contentDescription = "My image",
                     modifier = Modifier
                         .padding(6.dp)
@@ -90,7 +90,7 @@ fun Personajes() {
             }
 
             Image(
-                painter = painterResource(id = R.drawable.reyes),
+                painter = painterResource(id = R.drawable.akuma),
                 contentDescription = "My image",
                 modifier = Modifier
                     .padding(6.dp)
@@ -121,7 +121,7 @@ fun PersonajesUp() {
         Column(modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
-                painter = painterResource(id = R.drawable.reyes),
+                painter = painterResource(id = R.drawable.mii),
                 contentDescription = "My image",
                 modifier = Modifier
                     .padding(6.dp)
@@ -136,7 +136,7 @@ fun PersonajesUp() {
             Row(modifier = Modifier.fillMaxWidth().height(125.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Image(
-                    painter = painterResource(id = R.drawable.reyes),
+                    painter = painterResource(id = R.drawable.sergio_canales),
                     contentDescription = "My image",
                     modifier = Modifier
                         .padding(6.dp)
@@ -149,7 +149,7 @@ fun PersonajesUp() {
                 )
 
                 Image(
-                    painter = painterResource(id = R.drawable.reyes),
+                    painter = painterResource(id = R.drawable.sonic),
                     contentDescription = "My image",
                     modifier = Modifier
                         .padding(6.dp)
@@ -164,7 +164,7 @@ fun PersonajesUp() {
             }
 
             Image(
-                painter = painterResource(id = R.drawable.reyes),
+                painter = painterResource(id = R.drawable.akuma),
                 contentDescription = "My image",
                 modifier = Modifier
                     .padding(6.dp)
@@ -196,7 +196,7 @@ fun PersonajesLeft() {
         Column(modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
-                painter = painterResource(id = R.drawable.reyes),
+                painter = painterResource(id = R.drawable.mii),
                 contentDescription = "My image",
                 modifier = Modifier
                     .padding(6.dp)
@@ -211,7 +211,7 @@ fun PersonajesLeft() {
             Row(modifier = Modifier.fillMaxWidth().height(125.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Image(
-                    painter = painterResource(id = R.drawable.reyes),
+                    painter = painterResource(id = R.drawable.sergio_canales),
                     contentDescription = "My image",
                     modifier = Modifier
                         .padding(6.dp)
@@ -224,7 +224,7 @@ fun PersonajesLeft() {
                 )
 
                 Image(
-                    painter = painterResource(id = R.drawable.reyes),
+                    painter = painterResource(id = R.drawable.sonic),
                     contentDescription = "My image",
                     modifier = Modifier
                         .padding(6.dp)
@@ -239,7 +239,7 @@ fun PersonajesLeft() {
             }
 
             Image(
-                painter = painterResource(id = R.drawable.reyes),
+                painter = painterResource(id = R.drawable.akuma),
                 contentDescription = "My image",
                 modifier = Modifier
                     .padding(6.dp)
@@ -270,7 +270,7 @@ fun PersonajesRight() {
         Column(modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
-                painter = painterResource(id = R.drawable.reyes),
+                painter = painterResource(id = R.drawable.mii),
                 contentDescription = "My image",
                 modifier = Modifier
                     .padding(6.dp)
@@ -285,7 +285,7 @@ fun PersonajesRight() {
             Row(modifier = Modifier.fillMaxWidth().height(125.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Image(
-                    painter = painterResource(id = R.drawable.reyes),
+                    painter = painterResource(id = R.drawable.sergio_canales),
                     contentDescription = "My image",
                     modifier = Modifier
                         .padding(6.dp)
@@ -298,7 +298,7 @@ fun PersonajesRight() {
                 )
 
                 Image(
-                    painter = painterResource(id = R.drawable.reyes),
+                    painter = painterResource(id = R.drawable.sonic),
                     contentDescription = "My image",
                     modifier = Modifier
                         .padding(6.dp)
@@ -313,7 +313,7 @@ fun PersonajesRight() {
             }
 
             Image(
-                painter = painterResource(id = R.drawable.reyes),
+                painter = painterResource(id = R.drawable.akuma),
                 contentDescription = "My image",
                 modifier = Modifier
                     .padding(6.dp)
@@ -344,7 +344,7 @@ fun PersonajesDown() {
         Column(modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally) {
             Image(
-                painter = painterResource(id = R.drawable.reyes),
+                painter = painterResource(id = R.drawable.mii),
                 contentDescription = "My image",
                 modifier = Modifier
                     .padding(6.dp)
@@ -359,7 +359,7 @@ fun PersonajesDown() {
             Row(modifier = Modifier.fillMaxWidth().height(125.dp),
                 horizontalArrangement = Arrangement.SpaceBetween) {
                 Image(
-                    painter = painterResource(id = R.drawable.reyes),
+                    painter = painterResource(id = R.drawable.sergio_canales),
                     contentDescription = "My image",
                     modifier = Modifier
                         .padding(6.dp)
@@ -372,7 +372,7 @@ fun PersonajesDown() {
                 )
 
                 Image(
-                    painter = painterResource(id = R.drawable.reyes),
+                    painter = painterResource(id = R.drawable.sonic),
                     contentDescription = "My image",
                     modifier = Modifier
                         .padding(6.dp)
@@ -387,7 +387,7 @@ fun PersonajesDown() {
             }
 
             Image(
-                painter = painterResource(id = R.drawable.reyes),
+                painter = painterResource(id = R.drawable.akuma),
                 contentDescription = "My image",
                 modifier = Modifier
                     .padding(6.dp)
@@ -417,7 +417,88 @@ fun PersonajesMii() {
             .background(Color.Black)
     ) {
         Image(
-            painter = painterResource(id = R.drawable.reyes),
+            painter = painterResource(id = R.drawable.mii),
+            contentDescription = "My image",
+            modifier = Modifier
+                .padding(6.dp)
+                .fillMaxSize()
+                .border(
+                    width = 2.dp,
+                    color = Color.Gray
+                )
+        )
+
+    }
+}
+
+@Composable
+
+fun PersonajesAkuma() {
+    var BorderColor by remember { mutableStateOf(GreyBorder) }
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(450.dp)
+            .padding(8.dp)
+            .clip(RoundedCornerShape(7.dp))
+            .background(Color.Black)
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.akuma),
+            contentDescription = "My image",
+            modifier = Modifier
+                .padding(6.dp)
+                .fillMaxSize()
+                .border(
+                    width = 2.dp,
+                    color = Color.Gray
+                )
+        )
+
+    }
+}
+
+@Composable
+
+fun PersonajesSegio() {
+    var BorderColor by remember { mutableStateOf(GreyBorder) }
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(450.dp)
+            .padding(8.dp)
+            .clip(RoundedCornerShape(7.dp))
+            .background(Color.Black)
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.sergio_canales),
+            contentDescription = "My image",
+            modifier = Modifier
+                .padding(6.dp)
+                .fillMaxSize()
+                .border(
+                    width = 2.dp,
+                    color = Color.Gray
+                )
+        )
+
+    }
+}
+
+@Composable
+
+fun PersonajesSonic() {
+    var BorderColor by remember { mutableStateOf(GreyBorder) }
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(450.dp)
+            .padding(8.dp)
+            .clip(RoundedCornerShape(7.dp))
+            .background(Color.Black)
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.sonic),
             contentDescription = "My image",
             modifier = Modifier
                 .padding(6.dp)
